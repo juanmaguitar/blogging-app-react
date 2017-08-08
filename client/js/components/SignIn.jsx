@@ -1,6 +1,8 @@
 /* global React, axios */
 
-class Signin extends React.Component {
+const Link = window.ReactRouter.Link
+
+class Signin extends React.Component { // eslint-disable-line
 
   constructor (props) {
     super(props)
@@ -55,7 +57,7 @@ class Signin extends React.Component {
           >Sign in</button>
         </form>
         <div>
-          <Link to='/signup'>SignUp</Link>
+          <Link to='/signup'>{'SignUp'}</Link>
         </div>
       </div>
     )

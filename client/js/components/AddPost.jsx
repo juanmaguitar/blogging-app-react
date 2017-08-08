@@ -1,7 +1,7 @@
 /* global React, ReactRouter, axios */
 const hashHistory = ReactRouter.hashHistory
 
-class AddPost extends React.Component {
+class AddPost extends React.Component { // eslint-disable-line
 
   constructor (props) {
     super(props)
@@ -50,8 +50,7 @@ class AddPost extends React.Component {
             <div className='form-group'>
               <textarea
                 onChange={this.handleSubjectChange}
-                className='form-control' type='textarea' id='subject' placeholder='Subject' maxlength='140' rows='7'
-              ></textarea>
+                className='form-control' type='textarea' id='subject' placeholder='Subject' maxlength='140' rows='7' />
             </div>
 
             <button

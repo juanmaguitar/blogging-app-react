@@ -1,6 +1,6 @@
 /* global React, axios */
 
-class ShowPost extends React.Component {
+class ShowPost extends React.Component { // eslint-disable-line 
 
   constructor (props) {
     super(props)

@@ -13,8 +13,8 @@ app.use(express.static(pathClient))
 app.use(bodyParser.json())
 app.use(session({ secret: 'my-secret' }))
 
-app.use( routesAuth )
-app.use( routesBlog )
+app.use(routesAuth)
+app.use(routesBlog)
 
 app.get('/', function (req, res) {
   if (req.session && req.session.email) {
@@ -24,7 +24,6 @@ app.get('/', function (req, res) {
     res.sendFile(pathHome)
   }
 })
-
 
 app.get('/*', function (req, res) {
   if (req.session && req.session.email) {

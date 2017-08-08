@@ -1,6 +1,8 @@
 /* global React, axios */
 
-class Signup extends React.Component {
+const Link = window.ReactRouter.Link
+
+class Signup extends React.Component {  // eslint-disable-line
   constructor (props) {
     super(props)
     this.handleNameChange = this.handleNameChange.bind(this)
