@@ -11,14 +11,12 @@ const app = express()
 const PORT = 7777
 const pathPublic = path.join(__dirname, 'public')
 
-let sessions = global.sessions
-
 app.use(express.static(pathPublic))
 app.use(bodyParser.json())
 app.use(session({ secret: 'my-secret' }))
 
 app.get('/', function (req, res) {
-  if (sessions && sessions.email) {
+  if (req.session && req.session.email) {
     res.redirect('/home')
   } else {
     const pathHome = path.join(__dirname, '/public/home.html')
@@ -28,7 +26,7 @@ app.get('/', function (req, res) {
 
 
 app.get('/home', function (req, res) {
-  if (sessions && sessions.email) {
+  if (req.session && req.session.email) {
     const pathHome = path.join(__dirname, '/public/blog.html')
     res.sendFile(pathHome)
   } else {
@@ -37,12 +35,11 @@ app.get('/home', function (req, res) {
 })
 
 app.post('/signin', (req, res) => {
-  sessions = req.session
   const { email, password } = req.body
 
   user.validateSignIn(email, password, result => {
     if (result) {
-      sessions.email = email
+      req.session.email = email
       res.send('success')
     } else {
       res.send('Wrong username password')
@@ -66,7 +63,7 @@ app.post('/addpost', (req, res) => {
   })
 })
 
-app.post('/getpost', (req, res) => {
+app.get('/posts', (req, res) => {
   post.getPost(function (result) {
     res.send(result)
   })

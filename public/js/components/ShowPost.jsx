@@ -10,16 +10,9 @@ class ShowPost extends React.Component {
   }
 
   componentDidMount () {
-    const self = this
-    axios.post('/getPost', {
-
-    })
-    .then(function (response) {
-      self.setState({ posts: response.data })
-    })
-    .catch(function (error) {
-      console.log('error is ', error)
-    })
+    axios.get('/posts')
+      .then(({ data: posts }) => this.setState({ posts }))
+      .catch(console.error)
   }
 
   render () {
