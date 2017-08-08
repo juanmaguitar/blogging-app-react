@@ -23,7 +23,7 @@ class AddPost extends React.Component {
   }
 
   addPost () {
-    axios.post('/addPost', {
+    axios.post('/posts', {
       title: this.state.title,
       body: this.state.body
     })
