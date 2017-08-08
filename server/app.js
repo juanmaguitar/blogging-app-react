@@ -20,16 +20,16 @@ app.get('/', function (req, res) {
   if (req.session && req.session.email) {
     res.redirect('/home')
   } else {
-    const pathHome = path.join(pathClient,'home.html')
+    const pathHome = path.join(pathClient, 'home.html')
     res.sendFile(pathHome)
   }
 })
 
 
-app.get('/home', function (req, res) {
+app.get('/*', function (req, res) {
   if (req.session && req.session.email) {
-    const pathHome = path.join(pathClient,'blog.html')
-    res.sendFile(pathHome)
+    const pathBlog = path.join(pathClient, 'blog.html')
+    res.sendFile(pathBlog)
   } else {
     res.send('unauthorized')
   }
