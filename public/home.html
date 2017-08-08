@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+
+  <div id="app" class="container"></div>
+
+  <script src="https://fb.me/react-15.1.0.js"></script>
+  <script src="https://fb.me/react-dom-15.1.0.js"></script>
+  <script src="https://npmcdn.com/react-router@3.0.2/umd/ReactRouter.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <script type="text/jsx" src="js/components/SignIn.jsx"></script>
+  <script type="text/jsx" src="js/components/SignUp.jsx"></script>
+  <script type="text/jsx">
+
+    const Router = ReactRouter.Router
+    const Route = ReactRouter.Route
+    const hashHistory = ReactRouter.hashHistory
+    const Link = ReactRouter.Link
+
+    ReactDOM.render(
+
+        <Router history={hashHistory}>
+            <Route component={Signin} path="/"></Route>
+            <Route component={Signup} path="/signup"></Route>
+        </Router>,
+
+        document.getElementById('app')
+
+    );
+
+  </script>
+</body>
+</html>
