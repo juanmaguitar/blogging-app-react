@@ -1,4 +1,4 @@
-/* global axios */
+/* global React, ReactRouter, axios */
 const hashHistory = ReactRouter.hashHistory
 
 class AddPost extends React.Component {
